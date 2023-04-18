@@ -1,23 +1,15 @@
-<?php
+<?php 
 
-class Tasks
-{
-    public $id ;
-    public $description ;
-    public $completed ;
-}
+require '_init.php';
 
-  require '_init.php' ;
+
+
+
+ Route::make()
+ ->get('',[TaskController::class , 'index'])
+ ->post('create/task',[TaskController::class , 'create'])
+ ->resolve(Request::uri(), Request::method());
+
   
-  $tasks =  QueryBuilder::get('tasks'); // this return array of data (obj)
+  
 
-
-
-
-
-foreach($tasks as $task){
-    echo "<pre>";
-    echo $task->description ;
-    echo "</pre>";
-
-}
